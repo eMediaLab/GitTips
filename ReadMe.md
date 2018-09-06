@@ -1,7 +1,7 @@
-##Helpful things to know...
+## Helpful things to know...
 
 
-###Begin with Config
+### Begin with Config
 
 User settings are stored in multiple locations: Global, System, and Local. 
 
@@ -155,7 +155,7 @@ git merge origin/master --allow-unrelated-histories // use this if you want to m
 ```
 
 
-##Workflow
+## Workflow
 
 **Fetch**
 
@@ -186,7 +186,7 @@ Git may use the osxkeychain helper, which is a CLI (command line) utility that i
 1. Update your local repo username and password using git config
 2. Erase the saved keychain so Terminal doesn't try to default to that account
 
-##To Reset stored PW in Terminal for your main GitHub Account...
+## To Reset stored PW in Terminal for your main GitHub Account...
 
 **Use the osxkeychain helper!**
 
@@ -224,7 +224,7 @@ Brief overview of essential commands...
 * git remote add origin https://github.com/eMediaLab/repoName.git
 * git push -u origin master
 
-###Push an existing repository from the command line
+### Push an existing repository from the command line
 
 * git remote add origin https://github.com/eMediaLab/repoName.git
 * git push -u origin master
@@ -264,7 +264,7 @@ Trying to push local commits to a repo that already has a commit history
 
 **Solution:** Fetch and Merge, or pull the remote data and override the error...
 
-###Allow Unrelated Histories
+### Allow Unrelated Histories
 
 git pull origin branchname --allow-unrelated-histories
 
