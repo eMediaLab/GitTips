@@ -1,12 +1,12 @@
-## Helpful things to know...
+# Helpful things to know...
 
 
-### Begin with Config  
+### Customize Git Settings  
 Git user settings are stored in multiple locations: **Global**, **Local**, and **System**. To get the most out of Git, take some time to customize your settings. 
 
 For detailed info on customization, visit [git-scm.com](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).
 
-## Quick Notes
+## Quick Commands
 
 **List Configs...**  
 Commands to pull up each individual git config settings... 
@@ -24,7 +24,8 @@ Location of each git config file on the Mac...
 ```
 ~/.gitconfig   // Global
 .git/config    // Local
-usr/local/etc  // System
+/usr/local/etc  // System
+
 ```
 
 
@@ -63,7 +64,7 @@ git config --get remote.origin.url    // show just the URL
 **Useful Git Config Settings (Global)**  
 Global git settings are a conveninent way to set preferences for all repositories. You can always override a global setting by defining a local git configuration (see above).  
 
-Some recommended global settings...
+Some helpful Global setting suggestions are listed below. To edit the Global config setting, use this command: **git config --global --edit** 
 
 ```
 [core]
@@ -73,23 +74,20 @@ editor = code
 // The example above sets the editor to Visual Studio Code.
 
 autocrlf = false  // Turns off carriage return line feed injection
-safecrlf=false    // Turns off carriage return line feed warnings
+safecrlf = false  // Turns off carriage return line feed warnings
                   // Helpful if working with mixed Windows / Mac projects
-
-excludesfile = /Users/EML/.gitignore\_global 
-// This sets-up your default .gitignore file 
-// add files you ALWAYS want to ignore to it...
-// for example: .DS\_Store
 
 
 ```
-___
+**Note:** 
+After much research, I found the **autocrlf** and **safecrlf** settings above useful for my specific working situation ( edits being made to the same file on both a Mac and Windows machine ). If you aren't experiencing CRLF errors then you probably don't need to worry about adding these settings. 
+  
+This article provides helpful background on the difference between Mac and Windows when it comes to editing text, and how that sometimes leads to a headache when using version control: [Mind the End of Your Line](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) 
 
 
+## Fetch
 
-## Simple Workflow
-
-### Fetch  
+### Pull Down and Inspect Changes  
 
 **Fetch: Pull Down Remote Changes**  
 If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. 
@@ -121,8 +119,13 @@ git checkout origin/dev
 > * You are now looking at the remote version of the branch (locally)
 > * You are now in a "Read Only" mode 
 
-**Merge: Remote and Local Branch**  
-If everything appears ok after fetching, checking out, and inspecting any remote changes, ...you can then merge the remote branch to your local copy.  
+
+## Merge Updates
+
+### Update a Local Repo after Fetching
+
+**Merge: Remote Changes to Local Branch**  
+If everything appears ok after fetching, checking out, and inspecting any remote changes (see steps above), ...you can then merge the remote branch to your local copy.  
 
 ```
 git checkout master
@@ -170,10 +173,7 @@ Example: git remote add origin https://github.com/accountName/repoName.git
 > * SSH does not support the credential.helper which will cache your un/pw via https.
 
 
-**Force remove GIT tracking**
-```
-rm -rf .git // make sure Terminal is pointing to the repo root
-```
+
 
 **Set Upstream**
 
@@ -240,30 +240,53 @@ protocol=https
 
 ## Best Practice!...
 
-For every repo include a Readme, License (if applicable), and a .gitignore file
+For every repo include the following essential files... 
+
+* Readme
+* License (if applicable)
+* .gitignore file
 
 
 
+## Simple Way to Create a New Repo
 
-## Git Workflow
+Three steps:  
 
-Brief overview of essential commands...
+* Visit [GitHub](http://www.github.com) 
+* [Create a new repository](https://help.github.com/articles/create-a-repo/)
+* [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
 
-**Simple:** Create Repo on GitHub first, then clone to mac. This way the directory settings are automatically correct for the remote you want to push to. Or...
+## Manual way to Create a New Repo  
+An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
 
-###Create a new repository on the command line
+**The first step:** From the command line type `git init <FolderName>`          
 
-* echo "\# fix" \>\> README.md
-* git init
-* git add README.md
-* git commit -m "first commit"
-* git remote add origin https://github.com/eMediaLab/repoName.git
-* git push -u origin master
+The command above will create and initialize a folder with Git version control tracking enabled (replace brackets and folder name with your own). 
+
+**Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already hase version control enabled, the "git init" command will overwrite any previous tracking history!  
+
+```
+git add README.md  
+git commit -m "first commit"  
+git remote add origin https://github.com/accountName/repoName.git  
+git push -u origin master
+
+```
+
+## Version Control Tips
+
+**Force remove GIT tracking**
+```
+rm -rf .git // make sure Terminal is pointing to the repo root
+```
 
 ### Push an existing repository from the command line
 
-* git remote add origin https://github.com/eMediaLab/repoName.git
-* git push -u origin master
+```
+git remote add origin https://github.com/eMediaLab/repoName.git  
+git push -u origin master
+
+```
 
 **ISSUE:**
 
