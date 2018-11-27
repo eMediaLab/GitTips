@@ -89,7 +89,7 @@ ___
 
 ## Simple Workflow
 
-###Fetch  
+### Fetch  
 
 **Fetch: Pull Down Remote Changes**  
 If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. 
