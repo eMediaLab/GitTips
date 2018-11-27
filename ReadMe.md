@@ -1,48 +1,47 @@
 ## Helpful things to know...
 
 
-### Begin with Config
+### Begin with Config  
+Git user settings are stored in multiple locations: **Global**, **Local**, and **System**. To get the most out of Git, take some time to customize your settings. 
 
-User settings are stored in multiple locations: Global, System, and Local. 
+For detailed info on customization, visit [git-scm.com](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).
 
-**List Configs...**
+## Quick Notes
 
-```
-git config --local -l
-
-git config --system -l
-
-git config --global -l 
+**List Configs...**  
+Commands to pull up each individual git config settings... 
 
 ```
-
-**Config Locations**
-
-```
-~/.gitconfig // global
-
-.git/config // local
-
-usr/local/etc // system
-```
-
-
-**Edit Config**
+git config --global -l    // Global
+git config --local -l     // Local
+git config --system -l    // System
 
 ```
-git config --edit // Local
 
-git config --global --edit
+**Config Locations**  
+Location of each git config file on the Mac...
 
-git config --system --edit
+```
+~/.gitconfig   // Global
+.git/config    // Local
+usr/local/etc  // System
 ```
 
 
-**Update Settings**
+**Edit Config**  
+Command to quickly edit git config settings...
+
+```
+git config --global --edit   // Global
+git config --edit            // Local
+git config --system --edit   // System
+
+```
+
+**Manual way to Update Specific Config Settings**
 
 ```
 git config --global user.name "Name Here"
-
 git config --global user.email 
 
 // Change global to system or leave out to set for the current repo
@@ -54,71 +53,121 @@ git config --global user.email
 Examples...
 
 git config user.eMail
-
 git config user.name
-
 git remote show origin
-
-git config --get remote.origin.url // show just the URL
+git config --get remote.origin.url    // show just the URL
 ```
 
 
 
-**Useful Config Settings (global)**
+**Useful Git Config Settings (Global)**  
+Global git settings are a conveninent way to set preferences for all repositories. You can always override a global setting by defining a local git configuration (see above).  
+
+Some recommended global settings...
 
 ```
 [core]
 
- editor = code // Visual Studio Code
+editor = code      
+// Set the default text editor to your preferred text editor 
+// The example above sets the editor to Visual Studio Code.
 
- autocrlf = input 
+autocrlf = false  // Turns off carriage return line feed injection
+safecrlf=false    // Turns off carriage return line feed warnings
+                  // Helpful if working with mixed Windows / Mac projects
 
- excludesfile = /Users/EML/.gitignore\_global // add files you ALWAYS want to ignore: i.e. .DS\_Store
+excludesfile = /Users/EML/.gitignore\_global 
+// This sets-up your default .gitignore file 
+// add files you ALWAYS want to ignore to it...
+// for example: .DS\_Store
 
-[remote "origin"]
 
- url = [https://github.com/eMediaLab/repoNameHere.git](https://github.com/eMediaLab/demo.git) 
-
- fetch = +refs/heads/\*:refs/remotes/origin/\* 
 ```
 ___
 
-## Remotes...
 
-CD into your repo directory, then...
 
-**List Remotes / Branches**
+## Simple Workflow
+
+###Fetch  
+
+**Fetch: Pull Down Remote Changes**  
+If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. 
+
 
 ```
+git fetch  
+// Downloads commits, files, and refs (i.e.  branches) but doesn't merge 
+
+```
+
+**Checkout: Inspect Changes**  
+After fetching you can inspect any changes made to remote branches.  
+
+```
+git branch -r
+// List all remote branches that are now available locally to checkout
+
+git checkout origin/dev
+// Switches to the remote dev branch (available locally after fetching)
+// Replace "dev" to switch to another remote branch
+// For example: git checkout origin/someOtherBranchName
+
+```
+
+> **Note:**   
+> When you checkout a remote branch, you may see a 'detached HEAD' warning. This isn't anything to be overly concerned about. It simply means... 
+
+> * You are now looking at the remote version of the branch (locally)
+> * You are now in a "Read Only" mode 
+
+**Merge: Remote and Local Branch**  
+If everything appears ok after fetching, checking out, and inspecting any remote changes, ...you can then merge the remote branch to your local copy.  
+
+```
+git checkout master
+// Checkout the local branch you want to merge into (in this case master)
+
+git merge origin/dev
+// Merges the remote dev branch into master 
+// Replace "dev" to merge another remote branch to master
+// For example: git merge origin/anotherRemoteBranchName
+
+```
+
+## Working with Remote Repos
+
+**List remote URLs** (if configured)  
+To list the remote URL(s) for your repository, cd to the root level of your repo and then type...
+
+```  
 git remote -v
 
-git branch -r // will list remote branches
 ```
-
 
 **Remove a remote**
 
 ```
-git remote rm \<location\> \<branch\> // or simply...
+git remote rm <location> <branch> // or simply...  
+Example: git remote rm origin
 
-git remote rm origin
 ```
 
 **Add a remote** 
 
 ```
-git remote add \<name\> \<url\>
+git remote add <remote alias/name> <url>  
+Example: git remote add origin https://github.com/accountName/repoName.git
 
-git remote add origin https://github.com/eMediaLab/repoName.git
 ```
 
-**Note:** When adding a remote, use https NOT git@github.com:eMediaLab/repoName.git (SSH)
+**Note:** When adding a remote, use https **NOT** git@github.com:accountName/repoName.git (SSH)
 
-**Reasoning:**
+> **Reasoning:**
 
-* https is less likely blocked via firewall.
-* Easier setup and works on the widest range of networks/platforms.
-* SSH does not support the credential.helper which will cache your un/pw via https.
+> * https is less likely blocked via firewall.
+> * Easier setup and works on the widest range of networks/platforms.
+> * SSH does not support the credential.helper which will cache your un/pw via https.
 
 
 **Force remove GIT tracking**
@@ -152,19 +201,6 @@ git pull origin branchname --allow-unrelated-histories
 git merge origin/master --allow-unrelated-histories // use this if you want to merge a Fetch 
 
 // If your online and local repos have alternate histories, but you know its ok - use this command. 
-```
-
-
-## Workflow
-
-**Fetch**
-
-```
-You may want to test using Fetch (instead of pull). This allows to check work before merging! Use fetch and then checkout a branch to see the data.
-
-git fetch // Downloads refs but doesn't merge 
-
-git checkout origin/master // Switch to see fetch data. Works for any remote: origin/branch2, Alias/branch3, etc.
 ```
 
 
