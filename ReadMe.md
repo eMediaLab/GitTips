@@ -359,7 +359,7 @@ git merge origin/master --allow-unrelated-histories // use this if you want to m
 Occasionally you will run into issues when trying to push to a repository. 
 
 ```
-git remote add origin https://github.com/eMediaLab/repoName.git  
+git remote add origin https://github.com/accountName/repoName.git  
 git push -u origin master
 
 ```
@@ -387,7 +387,7 @@ Trying to push without a commit history
 
 **error:** src refspec master does not match any.
 
-**error:** failed to push some refs to 'https://github.com/eMediaLab/someRepoName.git'
+**error:** failed to push some refs to 'https://github.com/accountName/someRepoName.git'
 
 **Solution:** Begin a commit history
 
