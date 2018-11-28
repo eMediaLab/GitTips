@@ -201,8 +201,8 @@ The command above will create and initialize a folder with Git version control t
 After initializing/creating your local repository, you will want to push it to GitHub. Here are the steps.
 
 1. First, use GitHub to create an empty repo †
-2. Use Terminal to add some files to your new repo (if needed)
-3. Make your first commit and push the repo online
+2. Use Terminal to add some files to your new repo locally (if needed)
+3. Make your first commit and push the local repository online
 
 ```
 git add README.md  
