@@ -213,13 +213,14 @@ git push -u origin master
 ```
 **Note:** 
 * † For clarity, it is a good idea to name your online repository the same as your local version
-* The first time you push to a remote, you need to use the -u flag (see above). 
-* This "sets the upstream" which basically means you are designating where to push to in the future. 
-* After you do this the first time, the -u flag is no longer necessary, "git push" is all that is needed. 
+* The first time you push to a remote, you need to use the -u flag (see above) 
+* The -u flag "sets the upstream" which basically means you are designating where to push to in the future 
+* After you do this the first time, the -u flag is no longer necessary, "git push" is all that is needed
 * If you are working in a branch and you want to also push that to GitHub, you will need to set the upstream for that branch as well. For example... 
 
 `git push -u origin myBranchName`
 
+<br>
 
 ## Fetch
 
