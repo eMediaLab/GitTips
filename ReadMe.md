@@ -335,7 +335,7 @@ git merge origin/master --allow-unrelated-histories // use this if you want to m
 
 
 ### Unable to Push to Remote
-xxxx
+Occasionally you will run into issues when trying to push to a repository. 
 
 ```
 git remote add origin https://github.com/eMediaLab/repoName.git  
@@ -345,7 +345,7 @@ git push -u origin master
 
 **ISSUE:**
 
-You may receive an error if pushing a locally created for first time to a repo that already has activity. You may also receive an error if you are pulling a repo for first time to a local repo that already has activity (i.e. a different commit history).
+You may receive an error if you are pushing a local repository for the first time to a repo that already had activity. You may also receive an error if you are pulling a repo for first time to a local repository that already has activity (i.e. a different commit history).
 
 **Solutions:**
 
