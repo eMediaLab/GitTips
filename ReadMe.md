@@ -1,4 +1,4 @@
-# Helpful things to know...
+# Working with Git...
 
 
 ### Begin with Customization  
@@ -12,6 +12,7 @@ For detailed info on customization, visit [git-scm.com](https://git-scm.com/book
 
 **Note** † The "current project" is the repository you are currently pointing to in Terminal: [pwd](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
 
+<br>
 
 ## How to Customize Settings
 
@@ -106,34 +107,15 @@ This article provides helpful background on the difference between Mac and Windo
 
 <br>
 
-# Creating a Repository
+# Working with Repositories
 
-After customizing your Git settings, you can begin to work with repositories. 
+### Begin with GitHub...  
+If you want to work with an existing repository, the easiest way to begin is to clone the repository of work to your desktop. 
 
-## Simple Way to Create a New Repo
+[GitHub Help](https://help.github.com/articles/cloning-a-repository/):  Simple steps to clone a repository.  
 
-**Three Steps...**  
 
-1. Visit [GitHub](http://www.github.com) 
-1. [Create a new repository](https://help.github.com/articles/create-a-repo/)
-1. [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
-
-## Manual way to Create a New Repo  
-An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
-
-**The first step:** From the command line type `git init <FolderName>`          
-
-The command above will create and initialize a folder with Git version control tracking enabled (replace brackets and folder name with your own). 
-
-**Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already has version control enabled, the "git init" command will overwrite any previous tracking history!  
-
-```
-git add README.md  
-git commit -m "first commit"  
-git remote add origin https://github.com/accountName/repoName.git  
-git push -u origin master
-
-```
+<br>
 
 ## Initial Repo Files
 
@@ -159,6 +141,35 @@ open .gitignore
 2. Type `command shift .` to show invisible files
 3. Type the command again to hide invisible files    
 
+
+<br>
+ 
+  
+
+## Simple Way to Create a New Repo
+
+**Three Steps...**  
+
+1. Visit [GitHub](http://www.github.com) 
+1. [Create a new repository](https://help.github.com/articles/create-a-repo/)
+1. [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
+
+## Manual way to Create a New Repo  
+An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
+
+**The first step:** From the command line type `git init <FolderName>`          
+
+The command above will create and initialize a folder with Git version control tracking enabled (replace brackets and folder name with your own). 
+
+**Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already has version control enabled, the "git init" command will overwrite any previous tracking history!  
+
+```
+git add README.md  
+git commit -m "first commit"  
+git remote add origin https://github.com/accountName/repoName.git  
+git push -u origin master
+
+```
 
 
 ## Fetch
@@ -195,6 +206,7 @@ git checkout origin/dev
 > * You are now looking at the remote version of the branch (locally)
 > * You are now in a "Read Only" mode 
 
+<br>
 
 ## Merge Updates
 
@@ -213,6 +225,8 @@ git merge origin/dev
 // For example: git merge origin/anotherRemoteBranchName
 
 ```
+
+<br>
 
 ## Working with Remote Repos
 
@@ -279,50 +293,15 @@ git merge origin/master --allow-unrelated-histories // use this if you want to m
 // If your online and local repos have alternate histories, but you know its ok - use this command. 
 ```
 
-
-## Work with Multiple Accounts
-
-Global settings for your username or password do NOT cascade to repos created locally if... 
-
-* osxkeychain helper previously saved your username or password
-* You have local config settings for each
-
-**Multiple credentials on GitHub**
-
-Git may use the osxkeychain helper, which is a CLI (command line) utility that is sometimes installed with Git (i.e. via HomeBrew). This will save your username/password to your Keychain when you successfully login to GitHub the first time in Terminal via HTTPS. After logging in the first time, Git will then use the saved info. 
-
-**ISSUE:** You need to Log in under another account, outside of the default/saved keychain credential.
-
-**Solution:** 
-
-1. Update your local repo username and password using git config
-2. Erase the saved keychain so Terminal doesn't try to default to that account
-
-## To Reset stored PW in Terminal for your main GitHub Account...
-
-**Use the osxkeychain helper!**
-
-$ git credential-osxkeychain \<get|store|erase\> 
-
-// use get, store, or erase - then specify host, protocol and hit return. 
-
-host=github.com
-
-protocol=https
-
-[Press Return]
-
----
+<br>
 
 
-## Version Control Tips
 
-**Force remove GIT tracking**
-```
-rm -rf .git // make sure Terminal is pointing to the repo root
-```
+## Help for Common Issues 
 
-### Push an existing repository from the command line
+
+### Unable to Push to Remote
+xxxx
 
 ```
 git remote add origin https://github.com/eMediaLab/repoName.git  
@@ -390,3 +369,39 @@ git branch --set-upstream-to=origin/master // This will set the upstream without
 // After this is set, "git push" is only needed 
 
 // To set the upstream for other branches the process is the same: git push -u origin \<other branch name\>
+
+
+## Working with Multiple Accounts
+
+Global settings for your username or password do NOT cascade to repos created locally if... 
+
+* osxkeychain helper previously saved your username or password
+* You have local config settings for each
+
+
+**Multiple credentials on GitHub**  
+Git may use the osxkeychain helper, which is a CLI (command line) utility that is sometimes installed with Git (i.e. via HomeBrew). This will save your username/password to your Keychain when you successfully login to GitHub the first time in Terminal via HTTPS. After logging in the first time, Git will then use the saved information into the future.
+
+**ISSUE:** You need to Log into under another account, outside of the default/saved keychain credential.
+
+**Solution:** 
+
+1. Update your local repo username and password using git config
+2. Erase the saved keychain so Terminal doesn't try to default to that account, or...
+3. Reset your credentials using the command(s) outlined below
+
+<br>
+
+**How to Reset stored (cached via osxkeychain) password in Terminal**
+
+``` 
+git credential-osxkeychain \<get|store|erase\> 
+```
+
+// use get, store, or erase - then specify host, protocol and hit return. 
+
+host=github.com  
+protocol=https  
+[Press Return]
+
+<br>
