@@ -4,13 +4,13 @@
 ### Begin with Customization  
 To get the most out of Git, take some time to customize your git config settings. These user preference settings (configuration or "config" files) are stored in multiple locations: 
 
-**Local:** Settings only available to the current project**  
+**Local:** Settings only available to the current project †  
 **Global:** Settings apply for any repository for the current user   
 **System:** Settings apply to all user accounts
 
 For detailed info on customization, visit [git-scm.com](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).  
 
-**Note** **The "current project" is the repository you are currently pointing to in Terminal: [pwd](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
+**Note** † The "current project" is the repository you are currently pointing to in Terminal: [pwd](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
 
 
 ## How to Customize Settings
