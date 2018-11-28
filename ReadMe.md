@@ -130,8 +130,9 @@ After downloading a repository, it's a best practice to include the following st
 [MacDown:](https://macdown.uranusjr.com/) A helpful application for writing markdown syntax.  
 [Mastering Markdown](https://guides.github.com/features/mastering-markdown/): Learn the fundamentals of writing Markdown. 
 
-**Note:** † On a Mac, any file that begins with a dot "." will be invisible. To locate and work with .gitignore files, you can use Terminal. Use the command below to list invisible files in your current project folder. Once you locate or create a .gitignore file, you can then edit this in your favorite text editor...
+**Note:** † On a Mac, any file that begins with a dot "." will be invisible. To locate and work with .gitignore files, you can use Terminal. Use the command below to list invisible files in your current project folder. Once you locate or create a .gitignore file, you can then edit this in your favorite text editor.
 
+List all files, including invisible. Open .gitignore with text editor...
 ```
 ls -a
 open .gitignore 
