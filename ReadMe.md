@@ -153,7 +153,10 @@ Once a repository has been cloned to your computer, you can begin to add project
 2. **Frequency:** Agree on an expected frequecy of commits 
 3. **Workflow:** Consider using a simple "Feature Branch Workflow"
 
-**Meaningful Commits:** A meaningful commit explains what change occurs at the point the commit is made. A good practice is to use language that makes this clear. For example...
+<br>
+
+**Meaningful Commits**  
+A meaningful commit explains what change occurs at the point the commit is made. A good practice is to use language that makes this clear. For example...
 
 > Updates README.md to the project
 
@@ -163,7 +166,8 @@ When a visitor reads that commit message, they will immediately know that the co
 
 This second example adds context and clarity to exactly what changed in the documentation. 
 
-**Frequency of Commits:** A best practice is to check with your stakeholders regarding the number of commits they expect to see in your repository of work. Here's one way to demonstrate a working session using a consistent frequecy of commits...
+**Frequency of Commits**  
+A best practice is to check with your stakeholders regarding the number of commits they expect to see in your repository of work. Here's one way to demonstrate a working session using a consistent frequecy of commits...
 
 * Begin a session with an inline comment. Use the comment to explain your goal for the worksession. 
 * Mid-way or at regular timed intervals, stop and make a commit. 
@@ -171,9 +175,10 @@ This second example adds context and clarity to exactly what changed in the docu
 
 If you frequently commit and then push your work at the end of your work day, it will become very clear to project stakeholders how much was accomplished.  
 
-**Workflow:** Using a Feature Branch Workflow can be very helpful when making changes to a repository. This [GitHub Guide](https://guides.github.com/introduction/flow/) can help familiarize you with that concept.  
+**Workflow**  
+Using a Feature Branch Workflow can be very helpful when making changes to a repository. This [GitHub Guide](https://guides.github.com/introduction/flow/) can help familiarize you with that concept.  
 
-  
+ <br> 
 
 ## Simple Way to Create a New Repo
 
