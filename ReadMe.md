@@ -104,7 +104,7 @@ After much research, I found the **autocrlf** and **safecrlf** settings above us
   
 This article provides helpful background on the difference between Mac and Windows when it comes to editing text, and how that sometimes leads to a headache when using version control: [Mind the End of Your Line](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) 
 
-___
+
 
 # Creating a Repository
 
