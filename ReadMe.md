@@ -71,7 +71,7 @@ git config --get remote.origin.url    // show just the URL
 **Useful Git Config Settings (Global)**  
 Global git settings are a conveninent way to set preferences for all repositories. You can always override a global setting by defining a local git configuration (see above).  
 
-Some helpful Global setting suggestions are listed below. To edit the Global config setting, use this command: **git config --global --edit** 
+Some helpful Global setting suggestions are listed below. To edit the Global config setting, use this command: `git config --global --edit`
 
 ```
 [core]
