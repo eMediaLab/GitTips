@@ -93,7 +93,7 @@ safecrlf = false
 
 Quick Explanation of Global Settings Listed Above...
 
-* **editor:** Set the default text editor to your preferred text editor. The example above sets the editor to Visual Studio Code.
+* **editor:** Sets default text editor. The example above sets text editor to Visual Studio Code.
 * **autocrlf:** Turns off carriage return line feed injection
 * **safecrlf:** Turns off carriage return line feed warnings
 * **helper:** Enables storage of repo Username and Password using Mac KeyChain 
