@@ -1,15 +1,22 @@
 # Helpful things to know...
 
 
-### Customize Git Settings  
-Git user settings are stored in multiple locations: **Global**, **Local**, and **System**. To get the most out of Git, take some time to customize your settings. 
+### Begin with Customization  
+To get the most out of Git, take some time to customize your git config settings. These user preference settings (configuration or "config" files) are stored in multiple locations: 
 
-For detailed info on customization, visit [git-scm.com](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).
+**Local:** Settings only available to the current project**  
+**Global:** Settings apply for any repository for the current user   
+**System:** Settings apply to all user accounts
 
-## Quick Commands
+For detailed info on customization, visit [git-scm.com](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration).  
+
+**Note** **The "current project" is the repository you are currently pointing to in Terminal: [pwd](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
+
+
+## How to Customize Settings
 
 **List Configs...**  
-Commands to pull up each individual git config settings... 
+These commands will pull up and list your current git config settings... 
 
 ```
 git config --global -l    // Global
@@ -19,7 +26,7 @@ git config --system -l    // System
 ```
 
 **Config Locations**  
-Location of each git config file on the Mac...
+CD via Terminal to be taken directly to your git config files...
 
 ```
 ~/.gitconfig   // Global
@@ -68,21 +75,88 @@ Some helpful Global setting suggestions are listed below. To edit the Global con
 
 ```
 [core]
-
 editor = code      
-// Set the default text editor to your preferred text editor 
-// The example above sets the editor to Visual Studio Code.
-
-autocrlf = false  // Turns off carriage return line feed injection
-safecrlf = false  // Turns off carriage return line feed warnings
-                  // Helpful if working with mixed Windows / Mac projects
-
+autocrlf = false  
+safecrlf = false
+[credential]
+	helper = osxkeychain  
+[color]
+	ui = auto             
+[user]
+	name = "Your Name"                 
+	email = EmailAddress@someSite.com  
 
 ```
+
+Quick Explanation of Global Settings Listed Above...
+
+* **editor:** Set the default text editor to your preferred text editor. The example above sets the editor to Visual Studio Code.
+* **autocrlf:** Turns off carriage return line feed injection
+* **safecrlf:** Turns off carriage return line feed warnings
+* **helper:** Enables storage of repo Username and Password using Mac KeyChain 
+* **color:** Use colors with Git in Terminal
+
+
 **Note:** 
 After much research, I found the **autocrlf** and **safecrlf** settings above useful for my specific working situation ( edits being made to the same file on both a Mac and Windows machine ). If you aren't experiencing CRLF errors then you probably don't need to worry about adding these settings. 
   
 This article provides helpful background on the difference between Mac and Windows when it comes to editing text, and how that sometimes leads to a headache when using version control: [Mind the End of Your Line](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) 
+
+___
+
+# Creating a Repository
+
+After customizing your Git settings, you can begin to work with repositories. 
+
+## Simple Way to Create a New Repo
+
+**Three Steps...**  
+
+1. Visit [GitHub](http://www.github.com) 
+1. [Create a new repository](https://help.github.com/articles/create-a-repo/)
+1. [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
+
+## Manual way to Create a New Repo  
+An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
+
+**The first step:** From the command line type `git init <FolderName>`          
+
+The command above will create and initialize a folder with Git version control tracking enabled (replace brackets and folder name with your own). 
+
+**Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already has version control enabled, the "git init" command will overwrite any previous tracking history!  
+
+```
+git add README.md  
+git commit -m "first commit"  
+git remote add origin https://github.com/accountName/repoName.git  
+git push -u origin master
+
+```
+
+## Initial Repo Files
+
+After creating a new repository, it's a best practice to include the following starter files at the top level (root) of your repository... 
+
+* [README.md](https://guides.github.com/features/wikis/) - Write using Markdown Syntax
+* [License](https://choosealicense.com/) (if applicable)
+* [.gitignore](https://help.github.com/articles/ignoring-files/) †
+
+**Resources:**  
+[MacDown:](https://macdown.uranusjr.com/) A helpful application for writing markdown syntax.  
+[Mastering Markdown](https://guides.github.com/features/mastering-markdown/): Learn the fundamentals of writing Markdown. 
+
+**Note:** † On a Mac, any file that begins with a dot "." will be invisible. To locate and work with .gitignore files, you can use Terminal. Use the command below to list invisible files in your current project folder. Once you locate or create a .gitignore file, you can then edit this in your favorite text editor...
+
+```
+ls -a
+open .gitignore 
+```
+**Power User Trick:** To quickly show invisible files on a Mac...
+
+1. From the [Finder](https://support.apple.com/en-us/HT201732), type `command n` to open a new window
+2. Type `command shift .` to show invisible files
+3. Type the command again to hide invisible files    
+
 
 
 ## Fetch
@@ -238,40 +312,6 @@ protocol=https
 
 ---
 
-## Best Practice!...
-
-For every repo include the following essential files... 
-
-* Readme
-* License (if applicable)
-* .gitignore file
-
-
-
-## Simple Way to Create a New Repo
-
-Three steps:  
-
-* Visit [GitHub](http://www.github.com) 
-* [Create a new repository](https://help.github.com/articles/create-a-repo/)
-* [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
-
-## Manual way to Create a New Repo  
-An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
-
-**The first step:** From the command line type `git init <FolderName>`          
-
-The command above will create and initialize a folder with Git version control tracking enabled (replace brackets and folder name with your own). 
-
-**Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already hase version control enabled, the "git init" command will overwrite any previous tracking history!  
-
-```
-git add README.md  
-git commit -m "first commit"  
-git remote add origin https://github.com/accountName/repoName.git  
-git push -u origin master
-
-```
 
 ## Version Control Tips
 
