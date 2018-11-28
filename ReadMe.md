@@ -209,10 +209,10 @@ git push -u origin master
 ## Fetch
 
 ### Pull Down and Inspect Changes  
+If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. This is helpful if you are working with others and want to checkout their branches locally. It is also helpful if you are using a [Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for your own work. 
+
 
 **Fetch: Pull Down Remote Changes**  
-If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. 
-
 
 ```
 git fetch  
