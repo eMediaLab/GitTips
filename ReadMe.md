@@ -181,7 +181,7 @@ Using a Feature Branch Workflow can be very helpful when making changes to a rep
 
  <br> 
 
-## Simple Way to Create a New Repo
+## Simple Way to Create a New Repo and begin Work
 
 **Three Steps...**  
 
@@ -189,8 +189,13 @@ Using a Feature Branch Workflow can be very helpful when making changes to a rep
 1. [Create a new repository](https://help.github.com/articles/create-a-repo/)
 1. [Clone to your desktop](https://help.github.com/articles/cloning-a-repository/) ( Use HTTPS protocol, not SSH )  
 
-## Manual way to Create a New Repo  
-An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on the desktop and then push to GitHub. 
+After completing these steps, begin to work in the cloned repository/folder. Add projects, files, etc. Make regular commits as you work and push the repository back up to GitHub on occasion to share your progress.  
+
+
+<br>
+
+## Alternative way to Create a New Repo  
+An alternative to creating the repo on GitHub and cloning down to the desktop, is to create the repo on your computer first and then push to GitHub. This is a bit more involved but in certain cases you may want to work this way. For example, you may decide that you would like to do all of your version control tracking locally up to a certain point, and then push the repository online to share with the world. Here are the steps you will need to keep in mind if you decide to create a repository locally first...
 
 **The first step:** From the command line type `git init <FolderName>`          
 
