@@ -198,6 +198,12 @@ The command above will create and initialize a folder with Git version control t
 
 **Note:** "git init" without a folder name will initialize whatever directory you are currently pointing to in Terminal, with version control. Careful with this! If the directory you are pointing to already has version control enabled, the "git init" command will overwrite any previous tracking history!  
 
+After initializing/creating your local repository, you will want to push it to GitHub. Here are the steps.
+
+1. First, use GitHub to create an empty repo †
+2. Use Terminal to add some files to your new repo (if needed)
+3. Make your first commit and push the repo online
+
 ```
 git add README.md  
 git commit -m "first commit"  
@@ -205,6 +211,14 @@ git remote add origin https://github.com/accountName/repoName.git
 git push -u origin master
 
 ```
+**Note:** 
+* † For clarity, it is a good idea to name your online repository the same as your local version
+* The first time you push to a remote, you need to use the -u flag (see above). 
+* This "sets the upstream" which basically means you are designating where to push to in the future. 
+* After you do this the first time, the -u flag is no longer necessary, "git push" is all that is needed. 
+* If you are working in a branch and you want to also push that to GitHub, you will need to set the upstream for that branch as well. For example... 
+
+`git push -u origin myBranchName`
 
 
 ## Fetch
