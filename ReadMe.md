@@ -112,14 +112,15 @@ This article provides helpful background on the difference between Mac and Windo
 ### Begin with GitHub...  
 If you want to work with an existing repository, the easiest way to begin is to clone the repository of work to your desktop. 
 
-[GitHub Help](https://help.github.com/articles/cloning-a-repository/):  Simple steps to clone a repository.  
+Follow [these steps](https://help.github.com/articles/cloning-a-repository/) to clone a repository to your computer.  
 
+**Note:** Clone with HTTPS **not** SSH 
 
 <br>
 
-## Initial Repo Files
+## Add Common Files
 
-After creating a new repository, it's a best practice to include the following starter files at the top level (root) of your repository... 
+After downloading a repository, it's a best practice to include the following starter files at the top level (root) of your repository. If these files already exist you may want to customize each to fit the nature of your project.  
 
 * [README.md](https://guides.github.com/features/wikis/) - Write using Markdown Syntax
 * [License](https://choosealicense.com/) (if applicable)
@@ -144,6 +145,34 @@ open .gitignore
 
 <br>
  
+
+## Begin Work
+Once a repository has been cloned to your computer, you can begin to add project work to the folder. If you are working with others or having the work peer reviewed, here are some recommendations...
+
+1. **Commits:** Make regular and _meaningful_ commits
+2. **Frequency:** Agree on an expected frequecy of commits 
+3. **Workflow:** Consider using a simple "Feature Branch Workflow"
+
+**Meaningful Commits:** A meaningful commit explains what change occurs at the point the commit is made. A good practice is to use language that makes this clear. For example...
+
+> Updates README.md to the project
+
+When a visitor reads that commit message, they will immediately know that the commit made a change to the README.md file. If the document is being regularly updated, you may want to give more context on the change, for example...
+
+> Updates README.md to include Table of Contents
+
+This second example adds context and clarity to exactly what changed in the documentation. 
+
+**Frequency of Commits:** A best practice is to check with your stakeholders regarding the number of commits they expect to see in your repository of work. Here's one way to demonstrate a working session using a consistent frequecy of commits...
+
+* Begin a session with an inline comment. Use the comment to explain your goal for the worksession. 
+* Mid-way or at regular timed intervals, stop and make a commit. 
+* At the conclusion of your work session, make a final commit.
+
+If you frequently commit and then push your work at the end of your work day, it will become very clear to project stakeholders how much was accomplished.  
+
+**Workflow:** Using a Feature Branch Workflow can be very helpful when making changes to a repository. This [GitHub Guide](https://guides.github.com/introduction/flow/) can help familiarize you with that concept.  
+
   
 
 ## Simple Way to Create a New Repo
