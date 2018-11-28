@@ -17,7 +17,7 @@ For detailed info on customization, visit [git-scm.com](https://git-scm.com/book
 ## How to Customize Settings
 
 **List Configs...**  
-These commands will pull up and list your current git config settings... 
+These commands will pull up and list in Terminal your current git config settings... 
 
 ```
 git config --global -l    // Global
