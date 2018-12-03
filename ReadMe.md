@@ -256,16 +256,19 @@ git branch -a
 ```
 
 > **Note:**   
-> † Remote branches are READ ONLY when you fetch them down to your local repository. If you want to make changes to the remote, you must first create a local branch, based off of the remote. 
+> † Remote branches are READ ONLY when you fetch them down to your local repository. If you want to make changes to the remote, you must first create a local branch, based off of the remote.  
+> 
+> **Example:**  
+> git checkout -b dev origin/dev
 
-_Example:_  
-git checkout -b dev origin/dev
-
-**Potential Issues:**  
+**Potential Issue:**  
 If you checkout a remote branch directly, you will see a 'detached HEAD' warning. This means... 
 
 > * You are now looking at the remote version of the branch (locally)
 > * You are now in a "Read Only" mode 
+>
+> If you only want to review the remote branch content, and not edit, then being in a detached HEAD mode is fine. Just keep in mind, if you want to make adjustments to the branch you will need to create a local copy of it first († see checkout step above).
+
 
 <br>
 
