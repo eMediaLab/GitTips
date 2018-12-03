@@ -267,7 +267,7 @@ This example includes a "-b" option, which creates a "dev" branch based off of t
 
 
 **Potential Issue:**  
-If you checkout a remote branch directly, you will see a 'detached HEAD' warning. This means... 
+If you checkout a remote branch directly (without the -b tag which creates your own editable version of the branch), you will see a 'detached HEAD' warning. This means... 
 
 * You are now looking at the remote version of the branch (locally)
 * You are now in a "Read Only" mode 
