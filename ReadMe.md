@@ -233,12 +233,11 @@ git push -u origin master
 If you want to pull down a remote branch, use Fetch. This will update your local repo with the latest remote activity, but it doesn't merge it to any branch. This is helpful if you are working with others and want to checkout their branches locally. It is also helpful if you are using a [Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for your own work. 
 
 
-**Fetch: Pull Down Remote Changes**  
+**Fetch: Pull Down Remote Change*s*  
 
 ```
 git fetch  
 // Downloads commits, files, and refs (i.e.  branches) but doesn't merge 
-
 ```
 
 **Checkout: Inspect Changes**  
@@ -248,15 +247,22 @@ After fetching you can inspect any changes made to remote branches.
 git branch -r
 // List all remote branches that are now available locally to checkout
 
-git checkout origin/dev
-// Switches to the remote dev branch (available locally after fetching)
-// Replace "dev" to switch to another remote branch
-// For example: git checkout origin/someOtherBranchName
+git branch -a
+// List all branches, including remotes 
+
+† git checkout -b dev origin/dev 
+// Create and switch to a "dev" branch based on the "origin/dev" branch
 
 ```
 
 > **Note:**   
-> When you checkout a remote branch, you may see a 'detached HEAD' warning. This isn't anything to be overly concerned about. It simply means... 
+> † Remote branches are READ ONLY when you fetch them down to your local repository. If you want to make changes to the remote, you must first create a local branch, based off of the remote. 
+
+_Example:_  
+git checkout -b dev origin/dev
+
+**Potential Issues:**  
+If you checkout a remote branch directly, you will see a 'detached HEAD' warning. This means... 
 
 > * You are now looking at the remote version of the branch (locally)
 > * You are now in a "Read Only" mode 
