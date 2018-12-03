@@ -250,24 +250,29 @@ git branch -r
 git branch -a
 // List all branches, including remotes 
 
-† git checkout -b dev origin/dev 
+git checkout -b dev origin/dev †
 // Create and switch to a "dev" branch based on the "origin/dev" branch
 
 ```
 
-> **Note:**   
-> † Remote branches are READ ONLY when you fetch them down to your local repository. If you want to make changes to the remote, you must first create a local branch, based off of the remote.  
-> 
-> **Example:**  
-> git checkout -b dev origin/dev
+**Note:**   
+† Remote branches are READ ONLY when you fetch them down to your local repository. If you want to make changes to the remote, you must first create a local branch, based off of the remote.  
+ 
+**Example Checkout:**  
+This example includes a "-b" option, which creates a "dev" branch based off of the "origin/dev" branch. The checkout below will also switch you to the new "dev" branch...  
+  
+**git checkout -b dev origin/dev**
+
+...now that you have created and switched to the new dev branch, you can make updates to it. 
+
 
 **Potential Issue:**  
 If you checkout a remote branch directly, you will see a 'detached HEAD' warning. This means... 
 
-> * You are now looking at the remote version of the branch (locally)
-> * You are now in a "Read Only" mode 
->
-> If you only want to review the remote branch content, and not edit, then being in a detached HEAD mode is fine. Just keep in mind, if you want to make adjustments to the branch you will need to create a local copy of it first († see checkout step above).
+* You are now looking at the remote version of the branch (locally)
+* You are now in a "Read Only" mode 
+
+If you only want to review the remote branch content, and not edit, then being in a detached HEAD mode is fine. Just keep in mind, if you want to make adjustments to the branch you will need to create a local copy of it first (see **Example Checkout** step above).
 
 
 <br>
