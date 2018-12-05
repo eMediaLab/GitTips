@@ -83,8 +83,6 @@ autocrlf = false
 safecrlf = false
 [credential]
 	helper = osxkeychain  
-[color]
-	ui = auto             
 [user]
 	name = "Your Name"                 
 	email = EmailAddress@someSite.com  
