@@ -330,19 +330,54 @@ Example: git remote add origin https://github.com/accountName/repoName.git
 > * SSH does not support the credential.helper which will cache your un/pw via https.
 
 
-
+<br>
 
 **Set Upstream**
+When you fetch down remote branches, they are not automatically setup as  "tracking" branches. A tracking branch allows you to push updates to the online version of the branch. 
+
+There are a few simple steps to setup a tracking branch.   
 
 ```
-git push -u origin master
+git fetch
+// fetch down remote origin/branch and other branches. 
 
-git branch --set-upstream-to=origin/master // This will set the upstream without doing a push first
+git branch -a
+// list all remote and local branches 
+// Reminder: Remote branches are prefixed with the repo name
+// For example: origin/RemoteBranchName
+// "origin' is the alias that points to the URL of your repo
+// You can check to see what that url is with `git config --list`
 
-// After this is set, "git push" is only needed 
+git checkout -b mySecondBranch origin/mySecondBranch
+// The above command in plain english: 
+// "Create a new branch called mySecondBranch, based off of 
+// the remote branch located at origin/mySecondBranch"
+// The above command will create a local (editable) branch: mySecondBranch
+// The -b option creates the local branch 
+// "checkout" switches you to the local mySecondBranch
+// You can now push to and pull from origin/mySecondBranch  
 
-// To set the upstream for other branches the process is the same: git push -u origin \<other branch name\>
+git checkout --track origin/mySecondBranch
+// This command is shorthand for the previous git checkout command.
+// It may feel more intuitive due to the word "track". 
+// After entering this command, you can also... 
+// push to or pull from origin/mySecondBranch 
+
 ```
+**Note:** If you create a new branch locally on the Mac, you will likely need to add the -u option to "set the upstream". This means setting up the tracking for that branch so you can push or pull from the remote. 
+
+`git push -u origin/mySecondBranch`  
+// Shorthand to setup the local branch as a tracking branch. 
+
+The nice thing about local branches is that Git will remind you how to set the upstream if it's needed. You may see the long version of the command above if you try to push a branch that hasn't been set up with tracking... 
+
+> fatal: The current branch newLocalBranch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+> git push --set-upstream origin mySecondBranch
+ 
+
+<br>
 
 **Force Push**
 
